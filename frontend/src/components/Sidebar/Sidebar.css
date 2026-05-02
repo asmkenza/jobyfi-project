@@ -1,0 +1,294 @@
+/* Sidebar.css */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, #1a1d29 0%, #2c3e50 50%, #34495e 100%);
+    color: white;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 0;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+  }
+  
+  /* En-tête de la sidebar */
+  .sidebar-header {
+    padding: 30px 25px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .sidebar-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .sidebar-subtitle {
+    font-size: 0.9rem;
+    color: #bdc3c7;
+    opacity: 0.8;
+  }
+  
+  /* Navigation */
+  .sidebar nav {
+    padding: 0 15px;
+  }
+  
+  .sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar nav ul li {
+    margin-bottom: 8px;
+    position: relative;
+  }
+  
+  /* Liens de navigation */
+  .sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #bdc3c7;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Icônes pour les liens */
+  .sidebar nav ul li a::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+  }
+  
+  /* Icônes spécifiques */
+  .nav-profile::before {
+    content: '👤';
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-add-job::before {
+    content: '➕';
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-all-jobs::before {
+    content: '📋';
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-stats::before {
+    content: '📊';
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* États de survol et actif */
+  .sidebar nav ul li a:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+    color: #fff;
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+  }
+  
+  .sidebar nav ul li a:hover::before {
+    filter: brightness(1.2);
+  }
+  
+  .sidebar nav ul li a.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+    transform: translateX(5px);
+  }
+  
+  .sidebar nav ul li a.active::before {
+    filter: brightness(1.5);
+  }
+  
+  /* Effet de brillance au survol */
+  .sidebar nav ul li a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .sidebar nav ul li a:hover::after {
+    left: 100%;
+  }
+  
+  /* Indicateur de lien actif */
+  .sidebar nav ul li a.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background: #fff;
+    border-radius: 0 4px 4px 0;
+  }
+  
+  /* Section utilisateur (optionnelle) */
+  .sidebar-user {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  
+  .user-details h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #fff;
+  }
+  
+  .user-details p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #bdc3c7;
+    opacity: 0.8;
+  }
+  
+  /* Bouton de réduction (pour mobile) */
+  .sidebar-toggle {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .sidebar-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Scrollbar personnalisée */
+  .sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 250px;
+      transform: translateX(-100%);
+    }
+    
+    .sidebar.open {
+      transform: translateX(0);
+    }
+    
+    .sidebar-toggle {
+      display: block;
+    }
+    
+    .sidebar nav ul li a {
+      padding: 12px 15px;
+      font-size: 0.9rem;
+    }
+    
+    .sidebar-header {
+      padding: 20px;
+    }
+    
+    .sidebar-logo {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar {
+      width: 220px;
+    }
+    
+    .sidebar nav ul li a {
+      padding: 10px 12px;
+    }
+    
+    .sidebar nav ul li a::before {
+      margin-right: 10px;
+      font-size: 1rem;
+    }
+  }
